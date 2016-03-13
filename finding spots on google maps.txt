@@ -1,0 +1,48 @@
+function getIntersections(circleA, circleB) {
+    /* 
+     * Find the points of intersection of two google maps circles or equal radius
+     * circleA: a google.maps.Circle object 
+     * circleB: a google.maps.Circle object
+     * returns: null if 
+     *    the two radii are not equal 
+     *    the two circles are coincident
+     *    the two circles don't intersect
+     * otherwise returns: array containing the two points of intersection of circleA and circleB
+     */
+
+    var R, centerA, centerB, D, h, h_;
+
+    try {
+
+        R = circleA.getRadius();
+        centerA = circleA.getCenter();
+        centerB = circleB.getCenter();
+
+        if(R !== circleB.getRadius()) {
+            throw( new Error("Radii are not equal.") );
+        }
+        if(centerA.equals(centerB)) {
+            throw( new Error("Circle centres are coincident.") );
+        }
+
+        D = google.maps.geometry.spherical.computeDistanceBetween(centerA, centerB); //Distance between the two centres (in meters)
+
+        // Check that the two circles intersect
+        if(D > (2 * R)) {
+            throw( new Error("Circles do not intersect.") );
+        }
+
+        h = google.maps.geometry.spherical.computeHeading(centerA, centerB); //Heading from centre of circle A to centre of circle B. (in degrees)
+        h_ = Math.acos(D / 2 / R) * 180 / Math.PI; //Included angle between the intersections (for either of the two circles) (in degrees). This is trivial only because the two radii are equal.
+
+        //Return an array containing the two points of intersection as google.maps.latLng objects
+        return [
+            google.maps.geometry.spherical.computeOffset(centerA, R, h + h_),
+            google.maps.geometry.spherical.computeOffset(centerA, R, h - h_)
+        ];
+    }
+    catch(e) {
+        console.error("getIntersections() :: " + e.message);
+        return null;
+    }
+}

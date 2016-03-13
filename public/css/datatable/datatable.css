@@ -1,0 +1,13 @@
+label > input[type='search'] {
+	width: 200px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+#datatable {
+	display:none;
+	overflow:hidden;
+}

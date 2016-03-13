@@ -1,0 +1,11 @@
+Open apache’s configuration file using your favorite text editor. The configuration file generally locates at:
+{apache_dir}/conf/httpd.conf
+
+If you are using XAMPP or WAMP package then you will find the file at:
+{xampp_dir}/apache/conf/httpd.conf
+{wamp_dir}/apache/conf/httpd.conf
+Search for the following string:
+#LoadModule rewrite_module modules/mod_rewrite.so
+and uncomment it (remove the ‘#’ sign).
+Now search for another string AllowOverride None and replace it by AllowOverride All
+Finally save the changes, close your text editor and restart your apache server.
