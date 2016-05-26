@@ -14,7 +14,8 @@ class Absorb extends Controller {
 	public function index($absorbedUrl) {
 		$content = file_get_contents( BASE_PATH . '..' . DIRECTORY_SEPARATOR . $absorbedUrl);
 		$moduleDirectives = $this->searchForMegatronModuleDirective($content);
-		if ($moduleDirectives != FALSE) { //means we found no directives, thus we need to leave the page alone
+		if ($moduleDirectives != FALSE) { //means we found directives, thus we need to install the modules on the page
+			#var_dump($moduleDirectives);exit;
 			$this->installModules($content, $moduleDirectives);	
 		}//else nothing, because we do not want to harm the page
 		echo $content;
@@ -54,7 +55,7 @@ class Absorb extends Controller {
 	private function installModules(&$content, $moduleDirectives) {
 		$installTags = $this->getModulesInstallTag($moduleDirectives);
 		if (strpos($content, '</body>') !== FALSE) {
-			$content = preg_replace('/(\s)(<\/body>)/', '${1}' . $installTags . '${2}', $content);	
+			$content = preg_replace('/(\s)(<\/body>)/', '${1}' . $installTags . '${2}', $content);
 		}else {
 			$content .= $installTags;
 		}

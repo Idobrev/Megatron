@@ -13,6 +13,8 @@ require (LIBRARIES . 'Configurator.php');
 require (LIBRARIES . 'Helper.php');
 require (SETTINGS . 'Constants.php');
 
+#var_dump($_GET);exit;
+
 $application = new Application();
 $application->readConfiguration();
 $application->startSession();

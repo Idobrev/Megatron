@@ -53,8 +53,8 @@
 			//test for error
 			$error = $sth->errorInfo();
 			if (!empty($error[2])){
-				//put something here, like constants with errors
-				var_dump('something with the database.', $error);
+				//put something here, like constants with errors. Or call the error controller. fuck if i know
+				var_dump('something is wrong with the database.', $error);
 				return false; 
 			}else {
 				return true;

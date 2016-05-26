@@ -42,13 +42,21 @@ class Application {
 		$args = ''; //arguments to be passed to our invoked method
 		try {
 			//checks if we are in absorb mode. In this mode Megatron will only invoke the absorb controller.
-			if ( Configurator::getField(Constants::MEGATRON_SECTION, Constants::MEGATRON_FIELD_ABSORB_MODE) == TRUE  && $this->checkUrlForAbsorbation(($_GET['url'])) ) {
+			if ( Configurator::getField(Constants::MEGATRON_SECTION, Constants::MEGATRON_FIELD_ABSORB_MODE) == TRUE ) {
+				//if megatron is in absorb mode but the resource is not in the list of absorbed files (from the config), we must not touch the file
+				if ( $this->checkUrlForAbsorbation($_GET['url']) == FALSE) {
+					//we must redirect the server to request the given url
+					
+					//TODO fix this redirect
+					header('Location: ' . ABSORBED_WEB_URL . $_GET['url']);
+					exit;
+				}
 				$controllerName = 'absorb';
 				$method = 'index';
 				$args = $_GET['url'];
 			}
-			// actually call the controllers 
-			if (file_exists(CONTROLLERS . $controllerName . '.php')) {
+			// actually call the controllers. 
+			if (file_exists(CONTROLLERS . $controllerName . '.php') ) {
 				require(CONTROLLERS . $controllerName . '.php');
 	        	$controller = new $controllerName;
 				#$controller = new ReflectionClass($controllerName);
@@ -97,7 +105,6 @@ class Application {
 		require(CONTROLLERS . 'error.php');
 		$err = new Error();
 		$err->err_undefinedURL();
-		return false;
 	}
 }
 ?>

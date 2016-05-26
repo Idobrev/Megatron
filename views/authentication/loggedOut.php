@@ -1,6 +1,6 @@
 	<div class="unautheticated">
 		<p>Трябва да сте логнат за да виждате тази страница</p>
-		<form class="form-inline" method="post" action="<?php echo URL ?>login/authenticate">
+		<form class="form-inline" method="post" action="<?php echo MEGATRON_BASE_URL ?>login/authenticate">
 		  <div class="form-group">
 				<label class="sr-only" for="uname">Потребителско име</label>
 				<input type="text" class="form-control" name="uname" id="uname" placeholder="Потребителско име">
@@ -16,5 +16,5 @@
 		  </div> -->
 		  <button type="submit" class="btn btn-default">Впиши ме</button>
 		</form>
-		<a href="<?php echo URL ?>register">Регистрация</a>
+		<a href="<?php echo MEGATRON_BASE_URL?>register">Регистрация</a>
 	</div>

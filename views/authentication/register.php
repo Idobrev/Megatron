@@ -1,5 +1,5 @@
 <div id="reg_form">
-	<form method="post" action="<?php echo URL ?>register/user_registration">
+	<form method="post" action="<?php echo MEGATRON_BASE_URL ?>register/user_registration">
 	  <div class="form-group">
 	    <label for="uname">Потребителско име</label>
 	    <input type="text" class="form-control" name="uname" id="uname" placeholder="Потребителско име">
