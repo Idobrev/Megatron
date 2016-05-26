@@ -1,0 +1,12 @@
+
+1) Megatron installer.
+	User must chose which page to be absorbed by megatron.
+
+2) Module installer.
+	User must configer every module he tries to install with megatron
+	Must think of a way to not fuck it up while installing.
+
+3) Module package manager. We need a way to package and install modules.
+	Module verification. Module installer
+	a) module export
+	b) module import
