@@ -82,6 +82,7 @@ class RestAPI extends Controller {
 			self::sendAPIerror(406, 'Incorrect parameters. You must supply latitude and longtitude from which you want to take the spots');
 		}
 	}
+	
 	/**
 	 * Public function that let us insert data points 
 	 */
@@ -105,7 +106,7 @@ class RestAPI extends Controller {
 	 		if (!isset($_GET['token']) || !$this->model->verifyTokenAuthentication($_GET['token']) ) {
 	 			self::sendAPIerror(401, "Megatron error: 'Invalid token or user is not logged in'");
 				exit;
-			}	
+			}
 	 	}
 	}
 	

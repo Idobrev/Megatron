@@ -10,10 +10,11 @@
 			parent::__construct();	
 			$this->val = $this->getValidator('login');
 		}
+		
 		/**
 		 * Authentication model main function
 		 */
-		public function authenticate(){
+		public function authenticate() {
 			if ( !$this->validateInputFields() )return FALSE;
 			return $this->getUserInformation();
 		}
@@ -43,7 +44,6 @@
 			$error = $sth->errorInfo();
 			if (!empty($error[2])){
 				//TODO Do something when the user has wrong credentials?!?!!? IVANE WTF?!!?!
-				var_dump('something with the database.', $error);
 				return false;
 			}
 			return $sth->fetchObject();

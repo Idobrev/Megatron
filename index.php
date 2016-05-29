@@ -8,9 +8,12 @@ require (LIBRARIES . 'View.php');
 require (LIBRARIES . 'Model.php');
 require (LIBRARIES . 'Session.php');
 require (LIBRARIES . 'Validator.php');
+require (LIBRARIES . 'Indexer.php');
 require (LIBRARIES . 'MegatronException.php');
 require (LIBRARIES . 'Configurator.php');
 require (LIBRARIES . 'Helper.php');
+require (MODELS . 'iModel.php');
+require (CONTROLLERS . 'iController.php');
 require (SETTINGS . 'Constants.php');
 
 #var_dump($_GET);exit;

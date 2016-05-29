@@ -16,7 +16,7 @@ class Controller {
 			$model = $controller . '_model';
 			$this->model = new $model;
 		}else {
-			throw new MegatronException("Unable to find corresponding model: {$controller}. Please create a correspoding '{$controller}_model.php' file", 1);
+			throw new MegatronException("Unable to find corresponding model for controller: {$controller}. Please create a correspoding '" . strtolower($controller) . "_model.php' file", 1);
 		}
 	}
 }
