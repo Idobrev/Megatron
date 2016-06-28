@@ -3,3 +3,5 @@
 2) Maybe create a different folder for all interfaces?
 
 3) Extend to work with Angular JS and/or MeteorJS - multiple JS libraries
+
+4) In globals make a check if in absorb mode check the regex

@@ -17,8 +17,5 @@ $match = preg_match('/(.+\/)Megatron(\/.*)?/', $_SERVER['PHP_SELF'], $absorbedUr
 if ($match === 1) {	 
 	//refers to the path of the public folder of Megatron. EX: localhost/<yourweb>/Megatron/public or simply localhost/Megatron/public
 	define('ABSORBED_WEB_URL', $absorbedUrlMatch[1]);
-} else {
-	echo "Unable to locate Megatron folder. Somehow we fucked it up. Check globals.php and .htaccess file";
-	exit;
 }
 ?>

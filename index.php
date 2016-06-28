@@ -16,15 +16,10 @@ require (MODELS . 'iModel.php');
 require (CONTROLLERS . 'iController.php');
 require (SETTINGS . 'Constants.php');
 
-#var_dump($_GET);exit;
-
 $application = new Application();
 $application->readConfiguration();
 $application->startSession();
 $application->parseURL();
 $application->callController();
-
-//$application->renderView();
-//echo BASE_PATH;
 
 ?>
