@@ -7,7 +7,7 @@ class Controller {
 	protected function __construct(){
 		//var_dump('Main Controller');
 		$this->view = new View();
-		$this->callModel(get_class($this));
+		$this->callModel( lcfirst(get_class($this)));
 	}
 	
 	private function callModel($controller){
