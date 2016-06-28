@@ -7,7 +7,7 @@
 		private $userFields = array();
 		
 		function __construct() {
-			parent::__construct();	
+			parent::__construct();
 			$this->val = $this->getValidator('login');
 		}
 		
@@ -15,7 +15,9 @@
 		 * Authentication model main function
 		 */
 		public function authenticate() {
-			if ( !$this->validateInputFields() )return FALSE;
+			if ( !$this->validateInputFields() )
+				return FALSE;
+			
 			return $this->getUserInformation();
 		}
 		
@@ -25,7 +27,8 @@
 		private function validateInputFields() {
 			$this->userFields = $this->val->val_loginFields($_POST);
 			//we got error on validation
-			if ($this->userFields == FALSE) { return false; }
+			if ($this->userFields == FALSE)
+				return false;
 			//TODO ERROR HANDLING. COME OOON
 			return true;
 		}

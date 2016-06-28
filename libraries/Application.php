@@ -63,7 +63,7 @@ class Application {
 				require(CONTROLLERS . $controllerName . '.php');
 	        	$controller = new $controllerName;
 				#$controller = new ReflectionClass($controllerName);
-				if (!empty($this->url->method)) {
+				if (!empty($method)) {
 					$this->callMethod($controller, $method, $args);
 				}else {
 					$this->callMethod($controller, 'index', $args);
@@ -72,7 +72,9 @@ class Application {
 				$this->callErrorController();
 			}
 		} catch (MegatronException $e) {
+			//TODO Developer mode can just be placed here. If in dev mode display all that, if not display an user frendly error.
 			echo $e->errorMessage();
+			echo "<br><pre>" . $e->getTraceAsString() . "</pre>";
 			exit;
 		}
 	}
