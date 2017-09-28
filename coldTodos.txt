@@ -1,5 +1,5 @@
 1) autoloader. 
-	NEEDS A PROPER AUTO LOADER for class calls.
+	NEEDS A PROPER AUTO LOADER for class calls. Use composer!
 2) Maybe create a different folder for all interfaces?
 
 3) Extend to work with Angular JS and/or MeteorJS - multiple JS libraries
